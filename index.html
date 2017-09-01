@@ -30,7 +30,7 @@
 
   var Lose = 0;
 
-  var targetNumber = 95;
+  var targetNumber =  95;
 
   $("#guesses").text(targetNumber);
 
@@ -59,14 +59,25 @@
     crystalValue = parseInt(crystalValue);
     counter += crystalValue;
     alert("New score: " + counter);
+    
 
-    if (counter === targetNumber) {
-      alert("You win!");
+    if (counter == targetNumber) {
+        Win++;
+        document.querySelector("#wins").innerHTML = "wins:" + Win;
+        alert("You win!");
+        counter = 0;
+
+      }
+
+
+    if (counter > targetNumber) {
+        Lose++;
+        document.querySelector("#loses").innerHTML = "loses:" + Lose;
+        alert("You lose!!");
+        counter = 0;
+        
     }
 
-    else if (counter >= targetNumber) {
-      alert("You lose!!");
-    }
 
   });
 
